@@ -8,8 +8,18 @@ import org.openqa.selenium.WebElement;
 import static pluralsightpom.DriverFactory.getChromeDriver;
 
 public class HomePage {
+
+
     private final WebDriver driver = getChromeDriver();
     private final By headerSearchPath = By.className("header_search--input");
+
+    private HomePage() {
+
+    }
+
+    public static HomePage getHomePage() {
+        return new HomePage();
+    }
 
     public void search(String value) {
         WebElement search = driver.findElement(headerSearchPath);

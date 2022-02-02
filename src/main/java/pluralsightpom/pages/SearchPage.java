@@ -3,6 +3,9 @@ package pluralsightpom.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pluralsightpom.pages.search.Role;
+import pluralsightpom.pages.search.SkillLevel;
+import pluralsightpom.pages.search.Tab;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElementsLocatedBy;
 import static pluralsightpom.DriverFactory.getChromeDriver;
@@ -10,10 +13,20 @@ import static pluralsightpom.DriverFactory.getWebDriverWait;
 import static pluralsightpom.utils.TestUtils.explicitWait;
 
 public class SearchPage {
+
+
+    private SearchPage() {
+
+    }
+
+    public static SearchPage getSearchPage() {
+        return new SearchPage();
+    }
+
     private final WebDriver driver = getChromeDriver();
     private final WebDriverWait wait = getWebDriverWait();
 
-    public SearchPage filterBySkillLevel(String value) {
+    public SearchPage filterBySkillLevel(SkillLevel value) {
 
         driver.findElement(By.xpath("//div[contains(@class, 'search-filter-header') and contains(.,'Skill Levels')]"))
                 .click();
@@ -27,11 +40,11 @@ public class SearchPage {
         return this;
     }
 
-    public SearchPage filterByRole(String role) {
+    public SearchPage filterByRole(Role value) {
         driver.findElement(By.xpath("//div[contains(@class, 'search-filter-header') and contains(.,'Roles')]"))
                 .click();
 
-        By roleFilter = By.xpath("//span[contains(@class, 'search-filter-option-text') and contains(.,'" + role + "')]");
+        By roleFilter = By.xpath("//span[contains(@class, 'search-filter-option-text') and contains(.,'" + value + "')]");
         wait.until(visibilityOfAllElementsLocatedBy(roleFilter));
         driver.findElement(roleFilter)
                 .click();
@@ -40,8 +53,8 @@ public class SearchPage {
         return this;
     }
 
-    public SearchPage selectTabCourse() {
-        driver.findElement(By.xpath("//a[contains(@class, 'tab') and contains(., 'Courses')]"))
+    public SearchPage selectTabCourse(Tab value) {
+        driver.findElement(By.xpath("//a[contains(@class, 'tab') and contains(., '" + value + "')]"))
                 .click();
         return this;
     }
