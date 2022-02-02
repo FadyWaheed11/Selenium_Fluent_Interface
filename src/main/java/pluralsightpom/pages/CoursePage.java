@@ -1,4 +1,5 @@
 package pluralsightpom.pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,8 +17,9 @@ public class CoursePage {
                 .isDisplayed();
     }
 
-    public void verifyCoursePreviewIsDisplayed() {
+    public CoursePage verifyCoursePreviewIsDisplayed() {
         driver.findElement(By.xpath("//div[@id='course-page-hero']//div[@class='ps-button section'][2]"))
                 .isDisplayed();
+        return this;
     }
 }

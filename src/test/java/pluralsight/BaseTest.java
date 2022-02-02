@@ -1,4 +1,5 @@
 package pluralsight;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
@@ -13,6 +14,7 @@ import static pluralsightpom.DriverFactory.getWebDriverWait;
 public class BaseTest {
     private WebDriver driver;
     private WebDriverWait wait;
+
     @BeforeSuite
     public void setUp() {
         driver = getChromeDriver();
