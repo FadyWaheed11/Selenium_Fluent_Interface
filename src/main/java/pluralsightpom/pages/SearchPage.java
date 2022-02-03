@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pluralsightpom.pages.search.Role;
 import pluralsightpom.pages.search.SkillLevel;
 import pluralsightpom.pages.search.Tab;
-
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElementsLocatedBy;
 import static pluralsightpom.DriverFactory.getChromeDriver;
 import static pluralsightpom.DriverFactory.getWebDriverWait;
